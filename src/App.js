@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Main } from "./pages/Main";
 import { Layout } from "./component/Layout";
 import { Hosts } from "./pages/Hosts";
+import { Host } from "./pages/Host";
 
 function App() {
   return (
@@ -32,6 +33,14 @@ function App() {
             element={
               <Layout>
                 <Hosts />
+              </Layout>
+            }
+          />
+          <Route
+            path="host"
+            element={
+              <Layout>
+                <Host />
               </Layout>
             }
           />

@@ -12,9 +12,6 @@ main {
   min-height: 88vh;
 }
 
-footer {
-  grid-area: footer;
-  background: black;
-  padding: 1rem;
-  color: white;
+.App {
+  font-family: "Montserrat";
 }
