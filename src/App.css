@@ -7,11 +7,6 @@
     "footer";
 }
 
-header {
-  grid-area: header;
-  background-color: #0aa1dd;
-}
-
 main {
   grid-area: main;
   min-height: 88vh;

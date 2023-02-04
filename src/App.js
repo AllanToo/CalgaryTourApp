@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Main } from "./pages/Main";
 import { Layout } from "./component/Layout";
+import { Hosts } from "./pages/Hosts";
 
 function App() {
   return (
@@ -23,6 +24,14 @@ function App() {
             element={
               <Layout>
                 <Main />
+              </Layout>
+            }
+          />
+          <Route
+            path="hosts"
+            element={
+              <Layout>
+                <Hosts />
               </Layout>
             }
           />
