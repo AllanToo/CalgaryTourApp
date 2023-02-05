@@ -5,19 +5,13 @@ import { AiFillInstagram } from "react-icons/ai";
 export const Footer = () => {
   return (
     <FooterContainer>
-      <span>Copyright &copy; 2021 Travelo. All rights reserved</span>
+      <span>Copyright &copy; 2023 GuideGo. All rights reserved</span>
       <ul className="links">
         <li>
-          <a href="#hero">Home</a>
+          <a href="/main">Home</a>
         </li>
         <li>
-          <a href="#services">About</a>
-        </li>
-        <li>
-          <a href="#recommend">Places</a>
-        </li>
-        <li>
-          <a href="#testimonials">Testimonials</a>
+          <a href="/hosts">Hosts</a>
         </li>
       </ul>
       <ul className="social__links">
@@ -38,9 +32,9 @@ export const Footer = () => {
 const FooterContainer = styled.footer`
   display: flex;
   justify-content: space-evenly;
-  background-color: #d0d8ff;
+  background-color: white;
   border-radius: 0.5rem;
-  padding: 2.5rem;
+  padding: 1rem;
 
   ul {
     display: flex;

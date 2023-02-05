@@ -1,44 +1,62 @@
+// const express = require("express");
+// const app = express();
+// const mongoose = require("mongoose");
+// app.use(express.json());
+// const cors = require("cors");
+// app.use(cors());
+
+// const mongoUrl =
+//   "mongodb+srv://test:qwer1234@cluster0.z5w9phf.mongodb.net/GuideGo?retryWrites=true&w=majority";
+
+// mongoose
+//   .connect(mongoUrl, {
+//     useNewUrlParser: true,
+//   })
+//   .then(() => {
+//     console.log("Connected to database");
+//   })
+//   .catch((e) => console.log(e));
+
+// require("./Hosts");
+
+// const HostsData = mongoose.model("Hosts");
+
+// app.get("/hosts", async (req, res) => {
+//   try {
+//     HostsData.find()
+//       .then((data) => {
+//         res.send({ status: "ok", data: data });
+//       })
+//       .catch((error) => {
+//         res.send({ status: "error", data: error });
+//       });
+//   } catch (error) {}
+// });
+
+// app.listen(3001, () => {
+//   console.log("Server Started");
+// });
+
 const express = require("express");
 const app = express();
-const cors = require("cors");
-const port = process.env.PORT || 3001;
-const { mongodbaddress } = "localhost";
-
-const MongoClient = require("mongodb").MongoClient;
-const uri =
-  "mongodb+srv://root:passwordpassword@cluster1.r6doziu.mongodb.net/?retryWrites=true&w=majority";
-
-async function connect() {
-  try {
-    await mongoose.connect(uri);
-    console.log("Connect to MongoDB");
-  } catch (error) {
-    console.error(error);
-  }
-}
-const client = new MongoClient(uri, { useNewUrlParser: true });
-client.connect((err) => {
-  const db = client.db("test");
-  console.log("Connected to MongoDB successfully");
-  client.close();
-});
-
-app.use(cors());
 const mongoose = require("mongoose");
-mongoose.set("strictQuery", false);
+
+require("dotenv/config");
+const bodyParser = require("body-parser");
+
+app.use(bodyParser.json());
+
+//import routes
+const getsRoute = require("./Get");
+
+app.use("", getsRoute);
+
+//Connect to DB
 mongoose.connect(
-  { mongodbaddress },
-  {
-    useNewUrlParser: true,
-  }
+  "mongodb+srv://root:newpassword@cluster1.r6doziu.mongodb.net/yychacks",
+  { useNewUrlParser: true },
+  () => console.log("Connected to DB")
 );
 
-if (process.env.NODE_ENV !== "production") {
-  const mDb = mongoose.connection;
-  mDb.on("open", () => {
-    console.log("MongoDB is connected");
-  });
-  mDb.on("error", (error) => {
-    console.log(error);
-  });
-}
+//Starts Listening
+app.listen(3001);

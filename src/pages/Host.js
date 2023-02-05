@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import john from "../assets/john.jpeg";
 import styled from "styled-components";
 import { FaMedal } from "react-icons/fa";
@@ -9,12 +9,15 @@ import Destination1 from "../assets/D1.png";
 import Destination2 from "../assets/D2.png";
 import Destination3 from "../assets/D3.png";
 import Destination4 from "../assets/D4.png";
-import info1 from "../assets/info1.png";
-import info2 from "../assets/info2.png";
-import info3 from "../assets/info3.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faDollarSign } from "@fortawesome/free-solid-svg-icons";
 
 export const Host = () => {
-  const [active, setActive] = useState(1);
+  const hostinfo = [
+    { language: "English" },
+    { language: "Korean" },
+    { language: "Spanish" },
+  ];
   const data = [
     {
       image: Destination1,
@@ -48,40 +51,59 @@ export const Host = () => {
   ];
   return (
     <div>
-      <Disc>
+      <Disc style={{ padding: "50px" }}>
         <div className="left">
           <div className="picture">
             <img src={john} alt="" className="picture" />
           </div>
           <div className="userinfo">
-            <p>
-              <strong style={{ fontSize: "30px" }}>John Doe</strong>
+            <p style={{ fontSize: "30px" }}>
+              <strong>John Doe </strong>
+              <HiIdentification
+                style={{ fontSize: "40px", color: "skyblue" }}
+              />
+              <span style={{ fontSize: "20px", color: "gray" }}>verified</span>
+              <br />
             </p>
             <p style={{ fontSize: "23px" }}>
-              <FaMedal />
-              All - Star Host
+              <FaMedal style={{ fontSize: "40px", color: "blue" }} />
+              Best Host
             </p>
             <p>
               98trips <br />
               Joined May 2021
               <br />
               Typically responds in 6 minutes
+              <br />
+              {hostinfo.map((lan) => {
+                return (
+                  <button
+                    style={{
+                      marginLeft: "5px",
+                      marginRight: "5px",
+                      borderRadius: "0.5rem",
+                      backgroundColor: "gray",
+                      color: "white",
+                      border: "0px solid",
+                    }}
+                  >
+                    {lan.language}
+                  </button>
+                );
+              })}
+              <br />
+              <AiFillCar style={{ fontSize: "40px", color: "skyblue" }} />
+              mazda CX5 <br />
+              <MdEventSeat style={{ fontSize: "40px", color: "skyblue" }} />5
+              seats
             </p>
           </div>
-          <div className="spec">
-            <HiIdentification />
-            verified
-            <br />
-            <AiFillCar />
-            mazda CX5 <br />
-            <MdEventSeat />5 seats
-          </div>
         </div>
-
         <div className="description">
           <h2>
-            <strong style={{ fontSize: "30px" }}>Description</strong>
+            <strong style={{ fontSize: "30px" }}>About Me</strong>
           </h2>
+          <br />
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
           varius quam quisque id diam vel quam elementum pulvinar. Lorem ipsum
@@ -96,36 +118,25 @@ export const Host = () => {
           maecenas pharetra. Commodo quis imperdiet massa tincidunt nunc
           pulvinar sapien et ligula. Pharetra sit amet aliquam id diam maecenas.
           Eget felis eget nunc lobortis. Et tortor at risus viverra adipiscing
-          at. Orci eu lobortis elementum nibh tellus. Pellentesque pulvinar
-          pellentesque habitant morbi tristique. Mi quis hendrerit dolor magna.
-          Diam vulputate ut pharetra sit. Ornare suspendisse sed nisi lacus sed
-          viverra tellus in hac. Malesuada nunc vel risus commodo viverra. Eu
-          augue ut lectus arcu bibendum at varius vel. Mattis molestie a iaculis
-          at erat pellentesque adipiscing. Sit amet commodo nulla facilisi
-          nullam vehicula. Enim neque volutpat ac tincidunt vitae semper quis
-          lectus.
+          at.
         </div>
       </Disc>
       <Section id="recommend">
-        <div className="destinations">
+        <div className="destinations" style={{ padding: "50px 150px" }}>
           {data.map((destination) => {
             return (
               <div className="destination">
                 <img src={destination.image} alt="" />
                 <h3>{destination.title}</h3>
                 <p>{destination.subTitle}</p>
-                <div></div>
                 <div className="info">
-                  <div className="services">
-                    <img src={info1} alt="" />
-                    <img src={info2} alt="" />
-                    <img src={info3} alt="" />
-                  </div>
-                  <h5>{destination.cost}</h5>
+                  <h5>
+                    From <FontAwesomeIcon icon={faDollarSign} />
+                    {destination.cost}
+                  </h5>
                 </div>
-                <div className="distance">
-                  <span>Within 100 Kms</span>
-                  <span>{destination.duration}</span>
+                <div className="btn">
+                  <button className="button-22">B O O K</button>
                 </div>
               </div>
             );
@@ -137,15 +148,14 @@ export const Host = () => {
 };
 
 const Disc = styled.div`
-  padding-left: 50px;
-  padding-top: 30px;
+  padding: 30px 80px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 3rem;
   .left {
     margin: auto;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 3rem;
     .picture {
       float: left;
@@ -167,7 +177,8 @@ const Disc = styled.div`
 `;
 
 const Section = styled.section`
-  padding: 8rem 0;
+background-color: #E8F9FD;
+  padding: 5rem 0;
   .title {
     text-align: center;
   }
@@ -177,12 +188,11 @@ const Section = styled.section`
     grid-template-columns: repeat(4, 1fr);
     gap: 3rem;
     padding: 0 3rem;
-    .destination {
+    .destination {\
       padding: 1rem;
       display: flex;
       flex-direction: column;
       gap: 0.5rem;
-      /* background-color: #8338ec14; */
       background-color: white;
       border-radius: 1rem;
       transition: 0.3s ease-in-out;
@@ -192,6 +202,7 @@ const Section = styled.section`
       }
       img {
         width: 100%;
+        border-round: 1px;
       }
       .info {
         display: flex;
@@ -203,7 +214,6 @@ const Section = styled.section`
             border-radius: 1rem;
             background-color: #4d2ddb84;
             width: 2rem;
-            /* padding: 1rem; */
             padding: 0.3rem 0.4rem;
           }
         }
@@ -214,6 +224,51 @@ const Section = styled.section`
         display: flex;
         justify-content: space-between;
       }
+      .btn{
+    margin: auto;
+    text-align: center;
+    display: flex;
+    align-items:center;
+  }
+
+  .button-22 {
+    align-items: center;
+    height: 50px;
+    text-align: center;
+    appearance: button;
+    background-color: #79DAE8 ;
+    border-radius: 8px;
+    border-style: none;
+    box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 0;
+    font-family: "RM Neue",sans-serif;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+    padding: 10px 21px;
+    text-align: center;
+    text-transform: none;
+    transition: color .13s ease-in-out,background .13s ease-in-out,opacity .13s ease-in-out,box-shadow .13s ease-in-out;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+  
+  .button-22:active {
+    background-color: #006AE8;
+  }
+  
+  .button-22:hover {
+    background-color: #1C84FF;
+  }
+  .buttontext {
+
+  }
     }
   }
   @media screen and (min-width: 280px) and (max-width: 768px) {

@@ -1,28 +1,16 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import logo from "../assets/logo.png";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { VscChromeClose } from "react-icons/vsc";
+import logo from "../assets/logo.gif";
 
 export const Header = () => {
-  const [navbarState, setNavbarState] = useState(false);
   return (
     <>
       <Nav>
         <div className="brand">
           <div className="container">
-            <img src={logo} alt="" />
-            Travelo
-          </div>
-          <div className="toggle">
-            {navbarState ? (
-              <VscChromeClose onClick={() => setNavbarState(false)} />
-            ) : (
-              <GiHamburgerMenu onClick={() => setNavbarState(true)} />
-            )}
+            <img src={logo} alt="" style={{ width: "200px" }} />
           </div>
         </div>
-
         <ul>
           <li>
             <a href="/main">Home</a>
@@ -32,32 +20,12 @@ export const Header = () => {
           </li>
           <li></li>
           <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
         </ul>
       </Nav>
-      <ResponsiveNav state={navbarState}>
-        <ul>
-          <li>
-            <a href="#home" onClick={() => setNavbarState(false)}>
-              Home
-            </a>
-          </li>
-          <li>
-            <a href="#services" onClick={() => setNavbarState(false)}>
-              About
-            </a>
-          </li>
-          <li>
-            <a href="#recommend" onClick={() => setNavbarState(false)}>
-              Places
-            </a>
-          </li>
-          <li>
-            <a href="#testimonials" onClick={() => setNavbarState(false)}>
-              Testimonials
-            </a>
-          </li>
-        </ul>
-      </ResponsiveNav>
     </>
   );
 };
@@ -65,9 +33,9 @@ export const Header = () => {
 export default Header;
 
 const Nav = styled.nav`
+  position: relative;
   padding-top: 10px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   .brand {
     .container {
@@ -85,6 +53,8 @@ const Nav = styled.nav`
     }
   }
   ul {
+    margin: auto;
+    margin-bottom: none;
     display: flex;
     gap: 1rem;
     list-style-type: none;
@@ -96,12 +66,6 @@ const Nav = styled.nav`
         transition: 0.1s ease-in-out;
         &:hover {
           color: #023e8a;
-        }
-      }
-      &:first-of-type {
-        a {
-          color: #023e8a;
-          font-weight: 900;
         }
       }
     }
