@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Destination1 from "../assets/host1.png";
 import Destination2 from "../assets/host2.png";
@@ -9,6 +9,7 @@ import Destination6 from "../assets/host6.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export const Hosts = () => {
   const data = [
@@ -60,6 +61,33 @@ export const Hosts = () => {
   const goToHost = () => {
     navigate("/host");
   };
+
+  const [hostData, setHostData] = useState("");
+
+  // useEffect(() => {
+  //   fetch("http://localhost:3001/", {
+  //     method: "GET",
+  //     crossDomain: true,
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       Accept: "application/json",
+  //       "Access-Control-Allow-Origin": "*",
+  //     },
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setHostData(data.data);
+  //       console.log(hostData);
+  //     });
+  // });
+
+  const getData = async () => {
+    const { data } = await axios.get(`http://localhost:3001/`);
+    setHostData(data);
+  };
+  useEffect(() => {
+    getData();
+  }, []);
 
   return (
     <Section id="recommend">

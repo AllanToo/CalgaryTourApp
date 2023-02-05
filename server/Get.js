@@ -7,7 +7,6 @@ router.get("/", async (req, res) => {
   try {
     const hosts = await Host.find();
     res.json(hosts);
-    console.log(hosts);
   } catch (err) {
     res.json({ message: err });
   }
