@@ -1,16 +1,22 @@
 import React from "react";
 import bgImage from "../assets/video.mp4";
 import "./Main.css";
+import homelogo from "../assets/home.gif";
 
 export const Main = () => {
   return (
-    <div className="main">
-      <video autoPlay loop muted className="video">
+    <div className="body">
+      <video autoPlay loop muted>
         <source src={bgImage} type="video/mp4" />
       </video>
       <div className="text-wrapper">
-        <h1>Background Video in React</h1>
-        <p>Winter Calgary is suck</p>
+        <h1 style={{ fontWeight: "bold" }}>
+          Explore the winter treasure that is Calgary, with local expertise
+        </h1>
+        <h1>
+          {" "}
+          <img src={homelogo} style={{ width: "300px" }}></img>{" "}
+        </h1>
       </div>
     </div>
   );

@@ -13,11 +13,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDollarSign } from "@fortawesome/free-solid-svg-icons";
 
 export const Host = () => {
-  const hostinfo = [
-    { language: "English" },
-    { language: "Korean" },
-    { language: "Spanish" },
-  ];
+  const hostinfo = [{ language: "English" }, { language: "French" }];
   const data = [
     {
       image: Destination1,
@@ -58,7 +54,7 @@ export const Host = () => {
           </div>
           <div className="userinfo">
             <p style={{ fontSize: "30px" }}>
-              <strong>John Doe </strong>
+              <strong>Kalo </strong>
               <HiIdentification
                 style={{ fontSize: "40px", color: "skyblue" }}
               />
@@ -103,22 +99,12 @@ export const Host = () => {
           <h2>
             <strong style={{ fontSize: "30px" }}>About Me</strong>
           </h2>
-          <br />
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
-          varius quam quisque id diam vel quam elementum pulvinar. Lorem ipsum
-          dolor sit amet consectetur. Quis risus sed vulputate odio ut enim
-          blandit volutpat. Vitae elementum curabitur vitae nunc sed velit
-          dignissim. Adipiscing elit duis tristique sollicitudin. Felis bibendum
-          ut tristique et egestas quis ipsum suspendisse. Turpis massa tincidunt
-          dui ut. Enim tortor at auctor urna nunc id. Aenean et tortor at risus.
-          Libero id faucibus nisl tincidunt eget nullam. Urna id volutpat lacus
-          laoreet non curabitur gravida arcu ac. Aliquam eleifend mi in nulla
-          posuere sollicitudin. Et netus et malesuada fames ac turpis egestas
-          maecenas pharetra. Commodo quis imperdiet massa tincidunt nunc
-          pulvinar sapien et ligula. Pharetra sit amet aliquam id diam maecenas.
-          Eget felis eget nunc lobortis. Et tortor at risus viverra adipiscing
-          at.
+          <br />A teacher who has lived in the city for the past 15 years, this
+          person has a love for the city's cultural diversity and enjoys sharing
+          their knowledge of the city's different ethnic neighborhoods. They are
+          known for their warm personality and ability to make visitors feel at
+          home in the city and enjoy exploring the city's nightlife scene and
+          trying new foods.
         </div>
       </Disc>
       <Section id="recommend">
@@ -148,7 +134,8 @@ export const Host = () => {
 };
 
 const Disc = styled.div`
-  padding: 30px 80px;
+  margin-top: 100px;
+  padding: 50px 80px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 3rem;
@@ -158,6 +145,7 @@ const Disc = styled.div`
     grid-template-columns: repeat(2, 1fr);
     gap: 3rem;
     .picture {
+      margin-top: 15px;
       float: left;
       width: 250px;
       height: 250px;
@@ -177,7 +165,7 @@ const Disc = styled.div`
 `;
 
 const Section = styled.section`
-background-color: #E8F9FD;
+  background-color: #e8f9fd;
   padding: 5rem 0;
   .title {
     text-align: center;
@@ -187,8 +175,8 @@ background-color: #E8F9FD;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 3rem;
-    padding: 0 3rem;
-    .destination {\
+    padding: 30px 3rem;
+    .destination {
       padding: 1rem;
       display: flex;
       flex-direction: column;
@@ -213,7 +201,7 @@ background-color: #E8F9FD;
           img {
             border-radius: 1rem;
             background-color: #4d2ddb84;
-            width: 2rem;
+            width: 100%;
             padding: 0.3rem 0.4rem;
           }
         }
@@ -224,51 +212,51 @@ background-color: #E8F9FD;
         display: flex;
         justify-content: space-between;
       }
-      .btn{
-    margin: auto;
-    text-align: center;
-    display: flex;
-    align-items:center;
-  }
+      .btn {
+        margin: auto;
+        text-align: center;
+        display: flex;
+        align-items: center;
+      }
 
-  .button-22 {
-    align-items: center;
-    height: 50px;
-    text-align: center;
-    appearance: button;
-    background-color: #79DAE8 ;
-    border-radius: 8px;
-    border-style: none;
-    box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
-    box-sizing: border-box;
-    color: #fff;
-    cursor: pointer;
-    display: flex;
-    flex-direction: row;
-    flex-shrink: 0;
-    font-family: "RM Neue",sans-serif;
-    font-size: 100%;
-    line-height: 1.15;
-    margin: 0;
-    padding: 10px 21px;
-    text-align: center;
-    text-transform: none;
-    transition: color .13s ease-in-out,background .13s ease-in-out,opacity .13s ease-in-out,box-shadow .13s ease-in-out;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-  }
-  
-  .button-22:active {
-    background-color: #006AE8;
-  }
-  
-  .button-22:hover {
-    background-color: #1C84FF;
-  }
-  .buttontext {
+      .button-22 {
+        align-items: center;
+        height: 50px;
+        text-align: center;
+        appearance: button;
+        background-color: #79dae8;
+        border-radius: 8px;
+        border-style: none;
+        box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
+        box-sizing: border-box;
+        color: #fff;
+        cursor: pointer;
+        display: flex;
+        flex-direction: row;
+        flex-shrink: 0;
+        font-family: "RM Neue", sans-serif;
+        font-size: 100%;
+        line-height: 1.15;
+        margin: 0;
+        padding: 10px 21px;
+        text-align: center;
+        text-transform: none;
+        transition: color 0.13s ease-in-out, background 0.13s ease-in-out,
+          opacity 0.13s ease-in-out, box-shadow 0.13s ease-in-out;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+      }
 
-  }
+      .button-22:active {
+        background-color: #006ae8;
+      }
+
+      .button-22:hover {
+        background-color: #1c84ff;
+      }
+      .buttontext {
+      }
     }
   }
   @media screen and (min-width: 280px) and (max-width: 768px) {

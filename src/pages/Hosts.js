@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import Destination1 from "../assets/host1.png";
 import Destination2 from "../assets/host2.png";
@@ -9,49 +9,48 @@ import Destination6 from "../assets/host6.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 
 export const Hosts = () => {
   const data = [
     {
       image: Destination1,
-      title: "Host Name",
-      subTitle: "Languages",
+      name: "Kalo",
+      languages: "English, French",
       rating: "4.25",
       cost: "30",
     },
     {
       image: Destination2,
-      title: "Host Name",
-      subTitle: "Languages",
+      name: "Derek",
+      languages: "English",
       rating: "4.35",
       cost: "20",
     },
     {
       image: Destination3,
-      title: "Host Name",
-      subTitle: "Languages",
+      name: "Ahn",
+      languages: "English, French",
       rating: "3.35",
       cost: "45",
     },
     {
       image: Destination4,
-      title: "Host Name",
-      subTitle: "Language",
+      name: "Lily",
+      languages: "English, Spanish",
       rating: "2.35",
       cost: "20",
     },
     {
       image: Destination5,
-      title: "Host Name",
-      subTitle: "Languages",
+      name: "Jun",
+      languages: "English, Filipino",
       rating: "4.85",
       cost: "60",
     },
     {
       image: Destination6,
-      title: "Host Name",
-      subTitle: "Languages",
+      name: "Debora",
+      languages: "English, German",
       rating: "4.95",
       cost: "33",
     },
@@ -62,48 +61,21 @@ export const Hosts = () => {
     navigate("/host");
   };
 
-  const [hostData, setHostData] = useState("");
-
-  // useEffect(() => {
-  //   fetch("http://localhost:3001/", {
-  //     method: "GET",
-  //     crossDomain: true,
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       Accept: "application/json",
-  //       "Access-Control-Allow-Origin": "*",
-  //     },
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       setHostData(data.data);
-  //       console.log(hostData);
-  //     });
-  // });
-
-  const getData = async () => {
-    const { data } = await axios.get(`http://localhost:3001/`);
-    setHostData(data);
-  };
-  useEffect(() => {
-    getData();
-  }, []);
-
   return (
     <Section id="recommend">
       <div className="destinations">
-        {data.map((destination) => {
+        {data.map((host) => {
           return (
             <div className="destination" onClick={goToHost}>
-              <img src={destination.image} alt="" />
+              <img src={host.image} alt="" />
               <h7 style={{ fontWeight: "bold" }}>
-                {destination.title}
+                {host.name}
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <FontAwesomeIcon icon={faStar} />
-                &nbsp;&nbsp;{destination.rating}
+                &nbsp;&nbsp;{host.rating}
               </h7>
-              <p>{destination.subTitle}</p>
+              <p>{host.languages}</p>
             </div>
           );
         })}
