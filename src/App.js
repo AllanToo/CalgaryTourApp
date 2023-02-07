@@ -9,20 +9,20 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 function App() {
-  const [hostData, setHostData] = useState("");
+  // const [hostData, setHostData] = useState("");
 
-  const getData = () => {
-    try {
-      const { data } = axios.get(`http://localhost:3001/`);
-      setHostData(data);
-    } catch (e) {
-      console.log(e.message);
-    }
-  };
+  // const getData = () => {
+  //   try {
+  //     const { data } = axios.get(`http://localhost:3001/`);
+  //     setHostData(data);
+  //   } catch (e) {
+  //     console.log(e.message);
+  //   }
+  // };
 
-  useEffect(() => {
-    getData();
-  }, [getData]);
+  // useEffect(() => {
+  //   getData();
+  // }, [getData]);
 
   return (
     <div className="App">
