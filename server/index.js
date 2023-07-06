@@ -21,6 +21,10 @@ mongoose.connect(
   { useNewUrlParser: true },
   () => console.log("Connected to DB")
 );
-
+app.use("/",(req,res) =>{
+  res.setHeader("Access-Control-Allow-Credentials","true")
+  res.send("API is running")
+    res.json("Me")  
+})
 //Starts Listening
 app.listen(3001);
