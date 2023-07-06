@@ -9,6 +9,9 @@ import Destination6 from "../assets/host6.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import  { useEffect, useRef, useState } from "react";
+
 
 export const Hosts = () => {
   const data = [
@@ -61,6 +64,12 @@ export const Hosts = () => {
     navigate("/host");
   };
 
+  const [hostData, setHostData] = useState("");
+
+ 
+
+  
+
   return (
     <Section id="recommend">
       <div className="destinations">
@@ -83,75 +92,19 @@ export const Hosts = () => {
     </Section>
   );
 };
+const AdsContainer = ({children}) => {
+  const [data, setData] = useState();
+
+ 
+
+  return (
+    <div data={data}>
+      {children}
+    </div>
+  )
+}
+
 
 const Section = styled.section`
-  padding: 2rem 0;
-  .title {
-    text-align: center;
-  }
-
-  .destinations {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0 8rem;
-    padding: 35px 20rem;
-
-    .destination {
-      cursor: pointer;
-      padding: 1rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      border-radius: 1rem;
-      transition: 0.3s ease-in-out;
-      &:hover {
-        transform: translateX(0.4rem) translateY(-1rem);
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-      }
-      img {
-        border-radius: 1rem;
-        width: 250px;
-        height: 250px;
-      }
-      .info {
-        display: flex;
-        align-items: center;
-        .services {
-          display: flex;
-          gap: 0.3rem;
-          img {
-            border-radius: 1rem;
-            background-color: #4d2ddb84;
-            width: 2rem;
-            /* padding: 1rem; */
-            padding: 0.3rem 0.4rem;
-          }
-        }
-        display: flex;
-        justify-content: space-between;
-      }
-      .distance {
-        display: flex;
-        justify-content: space-between;
-      }
-    }
-  }
-  @media screen and (min-width: 280px) and (max-width: 768px) {
-    .packages {
-      ul {
-        li {
-          padding: 0 0.5rem;
-          font-size: 2vh;
-          padding-bottom: 1rem;
-        }
-        .active {
-          border-bottom-width: 0.3rem;
-        }
-      }
-    }
-    .destinations {
-      grid-template-columns: 1fr;
-      padding: 0;
-    }
-  }
+  
 `;
