@@ -11,8 +11,7 @@ import Destination3 from "../assets/D3.png";
 import Destination4 from "../assets/D4.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDollarSign } from "@fortawesome/free-solid-svg-icons";
-import {useEffect, useState} from "react";
-import axios from "axios";
+
 export const Host = () => {
   const hostinfo = [{ language: "English" }, { language: "French" }];
   const data = [
@@ -133,31 +132,151 @@ export const Host = () => {
     </div>
   );
 };
-const RestExample = () => {
-  const url = 'https://webhooks.mongodb-stitch.com/api/client/v2.0/app/covid-19-qppza/service/REST-API/incoming_webhook/metadata';
-  const [countries, setCountries] = useState([]);
-
-  useEffect(() => {
-    axios.get(url).then(res => {
-      setCountries(res.data.countries);
-    })
-  }, [])
-
-  return <div className="App">
-    <h1>List of Countries</h1>
-    <div>
-      <ul>
-        {countries.map(c => <li key={c}>{c}</li>)}
-      </ul>
-    </div>
-  </div>
-};
 
 const Disc = styled.div`
- 
+  margin-top: 100px;
+  padding: 50px 80px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+  .left {
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    .picture {
+      margin-top: 15px;
+      float: left;
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+    }
+    .userinfo {
+      margin: auto;
+    }
+    .spec {
+      font-size: 25px;
+      margin: auto;
+    }
+  }
+  .description {
+    margin-right: 50px;
+  }
 `;
 
 const Section = styled.section`
-  
+  background-color: #e8f9fd;
+  padding: 5rem 0;
+  .title {
+    text-align: center;
+  }
+
+  .destinations {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+    padding: 30px 3rem;
+    .destination {
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      background-color: white;
+      border-radius: 1rem;
+      transition: 0.3s ease-in-out;
+      &:hover {
+        transform: translateX(0.4rem) translateY(-1rem);
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      }
+      img {
+        width: 100%;
+        border-round: 1px;
+      }
+      .info {
+        display: flex;
+        align-items: center;
+        .services {
+          display: flex;
+          gap: 0.3rem;
+          img {
+            border-radius: 1rem;
+            background-color: #4d2ddb84;
+            width: 100%;
+            padding: 0.3rem 0.4rem;
+          }
+        }
+        display: flex;
+        justify-content: space-between;
+      }
+      .distance {
+        display: flex;
+        justify-content: space-between;
+      }
+      .btn {
+        margin: auto;
+        text-align: center;
+        display: flex;
+        align-items: center;
+      }
+
+      .button-22 {
+        align-items: center;
+        height: 50px;
+        text-align: center;
+        appearance: button;
+        background-color: #79dae8;
+        border-radius: 8px;
+        border-style: none;
+        box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
+        box-sizing: border-box;
+        color: #fff;
+        cursor: pointer;
+        display: flex;
+        flex-direction: row;
+        flex-shrink: 0;
+        font-family: "RM Neue", sans-serif;
+        font-size: 100%;
+        line-height: 1.15;
+        margin: 0;
+        padding: 10px 21px;
+        text-align: center;
+        text-transform: none;
+        transition: color 0.13s ease-in-out, background 0.13s ease-in-out,
+          opacity 0.13s ease-in-out, box-shadow 0.13s ease-in-out;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+      }
+
+      .button-22:active {
+        background-color: #006ae8;
+      }
+
+      .button-22:hover {
+        background-color: #1c84ff;
+      }
+      .buttontext {
+      }
+    }
+  }
+  @media screen and (min-width: 280px) and (max-width: 768px) {
+    .packages {
+      ul {
+        li {
+          padding: 0 0.5rem;
+          font-size: 2vh;
+          padding-bottom: 1rem;
+        }
+        .active {
+          border-bottom-width: 0.3rem;
+        }
+      }
+    }
+    .destinations {
+      grid-template-columns: 1fr;
+      padding: 0;
+    }
+  }
 `;
+
 
